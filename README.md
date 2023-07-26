@@ -9,6 +9,10 @@ Open Telemetry Sample Implementation
 - Poetry
 - Docker
 
+# Architecture
+
+![Datadog](images/architecture.png)
+
 # Installation
 ```
 poetry install
@@ -313,6 +317,6 @@ curl --location 'localhost:9090/roll_dice?dice=3&faces=6'
 
 7) Check data in datadog console:
 
-![alt](images/datadog.png)
+![Datadog](images/datadog.png)
 
-![alt](images/metrics.png)
+![Metrics](images/metrics.png)

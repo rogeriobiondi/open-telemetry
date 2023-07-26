@@ -32,7 +32,7 @@ exporters:
     loglevel: debug
   datadog:
     api:
-      site: <DD_SITE>
+      site: ${env:DD_SITE}
       key: ${env:DD_API_KEY}
 
 processors:
