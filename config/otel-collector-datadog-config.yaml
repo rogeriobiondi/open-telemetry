@@ -1,0 +1,51 @@
+# config/otel-collector-config.yaml
+receivers:
+  otlp:
+    protocols:
+      http:
+      grpc:
+
+  # The hostmetrics receiver is required to get correct infrastructure metrics in Datadog.
+  hostmetrics:
+    collection_interval: 10s
+    scrapers:
+      paging:
+        metrics:
+          system.paging.utilization:
+            enabled: true
+      cpu:
+        metrics:
+          system.cpu.utilization:
+            enabled: true
+      disk:
+      filesystem:
+        metrics:
+          system.filesystem.utilization:
+            enabled: true
+      load:
+      memory:
+      network:
+      processes:
+
+exporters:
+  logging:
+    loglevel: debug
+  datadog:
+    api:
+      site: <DD_SITE>
+      key: ${env:DD_API_KEY}
+
+processors:
+  batch:
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logging, datadog]
+      processors: [batch]
+    metrics:
+      receivers: [otlp]
+      exporters: [logging, datadog]
+      processors: [batch]
+

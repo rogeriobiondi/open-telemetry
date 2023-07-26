@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "open-telemetry"
+version = "0.1.0"
+description = "Open Telemetry Sample Implementation"
+authors = ["Rogerio Biondi <rogerio.biondi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "open_telemetry"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+opentelemetry-api = "^1.19.0"
+opentelemetry-sdk = "^1.19.0"
+fastapi = "^0.100.0"
+uvicorn = {extras = ["standard"], version = "^0.23.1"}
+install = "^1.3.5"
+opentelemetry-exporter-otlp = "^1.19.0"
+opentelemetry-instrumentation-fastapi = "^0.40b0"
+opentelemetry-distro = "^0.40b0"
+opentelemetry-exporter-prometheus = "^1.12.0rc1"
+art = "^6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
